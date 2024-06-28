@@ -7,4 +7,4 @@ sudo pacman -Suy hyprland fish wofi grim slurp nemo hyprpaper alacritty noto-fon
 sudo pacman -S nvidia-lts nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers
 
 #AUR
-yay -S google-chrome
+yay -S google-chrome bibata-cursor-theme
