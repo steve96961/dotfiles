@@ -1,0 +1,128 @@
+{
+	"layer": "top",
+	"modules-left": ["custom/launcher","cpu","memory","custom/media","tray"],
+	"modules-center": ["hyprland/workspaces"],
+	"modules-right": ["custom/updates","network","pulseaudio","clock","custom/power"],
+	
+	"pulseaudio": {
+		"tooltip": false,
+		"scroll-step": 5,
+		"format": "{icon}   {volume}%",
+		"format-muted": " Muted",
+		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"format-icons": {
+			"default": ["", "", ""]
+		}
+	},
+
+  	"hyprland/window": {
+        	"format": "{}"
+    	}, 
+
+        "hyprland/workspaces": {
+            "format": "{icon}",
+            "separate-outputs": false,
+            "active-only": false,
+            // turn on true to show same all workspaces on each monitor
+            "all-outputs": false,
+            "format-icons": {
+            // 1-10
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10",
+            // 11-10
+            "11": "1",
+            "12": "2",
+            "13": "3",
+            "14": "4",
+            "15": "5",
+            "16": "6",
+            "17": "7",
+            "18": "8",
+            "19": "9",
+            "110": "10"
+            
+            // // 1-10
+            // "1": "一",
+            // "2": "二",
+            // "3": "三",
+            // "4": "四",
+            // "5": "五",
+            // "6": "六",
+            // "7": "七",
+            // "8": "八",
+            // "9": "九",
+            // "10": "十",
+            // // 11-10
+            // "11": "一",
+            // "12": "二",
+            // "13": "三",
+            // "14": "四",
+            // "15": "五",
+            // "16": "六",
+            // "17": "七",
+            // "18": "八",
+            // "19": "九",
+            // "110": "十"
+            }
+},    
+	"network": {
+		"tooltip": false,
+		"format-wifi": "  {essid}",
+		"format-ethernet": "{ipaddr}/{cidr}"
+	},
+	
+    	"tray":{
+		"icon-size":18,
+		"spacing": 10
+	},
+    "clock": {
+        "format": "🕑 {:%R 📅 %d/%m}" 
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "  {usage}%",
+        "max-length": 10
+    },
+    "memory": {
+        "interval": 30,
+        "format": "  {}%",
+        "max-length": 10
+    },
+   "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        
+        "format-icons": {
+            "spotify": " ",
+            "default": "🎜 "
+        },
+        "escape": true,
+        "exec": "$HOME/.config/system_scripts/mediaplayer.py 2> /dev/null",
+        "on-click": "playerctl play-pause"
+    },
+    "custom/launcher":{
+        "format": " ",
+        "on-click": "wofi -show drun",
+        "on-click-right": "killall wofi"
+    },
+    "custom/power":{
+        "format": " ",
+        "on-click": "bash ~/.config/wofi/scripts/leave.sh",
+        "on-click-right": "killall wofi"
+    },
+    "custom/updates":{
+        "format": "{} Update(s)",
+        "exec": "checkupdates | wc -l",
+        "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+        "interval": 60
+    },
+}
