@@ -1,3 +1,4 @@
+# My Personal Arch Setup using Hyprland as tiling window compositor
 # Get Started:
 
 ```
