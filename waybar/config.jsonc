@@ -17,7 +17,7 @@
 
   	"hyprland/window": {
         	"format": "{}"
-    	}, 
+    	},
 
         "hyprland/workspaces": {
             "format": "{icon}",
@@ -48,31 +48,8 @@
             "18": "8",
             "19": "9",
             "110": "10"
-            
-            // // 1-10
-            // "1": "一",
-            // "2": "二",
-            // "3": "三",
-            // "4": "四",
-            // "5": "五",
-            // "6": "六",
-            // "7": "七",
-            // "8": "八",
-            // "9": "九",
-            // "10": "十",
-            // // 11-10
-            // "11": "一",
-            // "12": "二",
-            // "13": "三",
-            // "14": "四",
-            // "15": "五",
-            // "16": "六",
-            // "17": "七",
-            // "18": "八",
-            // "19": "九",
-            // "110": "十"
             }
-},    
+},
 	"network": {
 		"tooltip": false,
 		"format-wifi": "  {essid}",
@@ -84,7 +61,7 @@
 		"spacing": 10
 	},
     "clock": {
-        "format": "🕑 {:%R 📅 %d/%m}" 
+        "format": "🕑 {:%R 📅 %d.%m.%Y}"
     },
     "cpu": {
         "interval": 10,
@@ -100,7 +77,7 @@
         "format": "{icon} {}",
         "return-type": "json",
         "max-length": 40,
-        
+
         "format-icons": {
             "spotify": " ",
             "default": "🎜 "
@@ -115,9 +92,9 @@
         "on-click-right": "killall wofi"
     },
     "custom/power":{
-        "format": " ",
-        "on-click": "bash ~/.config/wofi/scripts/leave.sh",
-        "on-click-right": "killall wofi"
+        "format": "⏻ ",
+        "on-click": "wlogout",
+	"tooltip-format": "Power Menu"
     },
     "custom/updates":{
         "format": "{} Update(s)",
