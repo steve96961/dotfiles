@@ -11,7 +11,7 @@
 		"format-muted": " Muted",
 		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
 		"format-icons": {
-			"default": ["", "", ""]
+			"default": ["", "",""]
 		}
 	},
 
@@ -48,6 +48,29 @@
             "18": "8",
             "19": "9",
             "110": "10"
+            
+            // // 1-10
+            // "1": "一",
+            // "2": "二",
+            // "3": "三",
+            // "4": "四",
+            // "5": "五",
+            // "6": "六",
+            // "7": "七",
+            // "8": "八",
+            // "9": "九",
+            // "10": "十",
+            // // 11-10
+            // "11": "一",
+            // "12": "二",
+            // "13": "三",
+            // "14": "四",
+            // "15": "五",
+            // "16": "六",
+            // "17": "七",
+            // "18": "八",
+            // "19": "九",
+            // "110": "十"
             }
 },    
 	"network": {
@@ -83,7 +106,7 @@
             "default": "🎜 "
         },
         "escape": true,
-        "exec": "$HOME/.config/system_scripts/mediaplayer.py 2> /dev/null",
+        "exec": "$HOME/.config/system_scripts/mediaplayer.py",
         "on-click": "playerctl play-pause"
     },
     "custom/launcher":{
@@ -93,7 +116,7 @@
     },
     "custom/power":{
         "format": "⏻ ",
-        "on-click": "wlogout",
+        "on-click": "wlogout -b 2 -L 500 -R 500 -T 300 -B 300",
 	"tooltip-format": "Power Menu"
     },
     "custom/updates":{
