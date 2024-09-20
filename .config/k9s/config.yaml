@@ -1,14 +1,14 @@
 k9s:
   liveViewAutoRefresh: false
-  screenDumpDir: /home/enrico/.local/state/k9s/screen-dumps
+  screenDumpDir: /home/enrico/workspace/k9s
   refreshRate: 2
   maxConnRetry: 5
   readOnly: false
-  noExitOnCtrlC: false
+  noExitOnCtrlC: true
   ui:
     enableMouse: false
-    headless: false
-    logoless: false
+    headless: true
+    logoless: true
     crumbsless: false
     reactive: false
     noIcons: false

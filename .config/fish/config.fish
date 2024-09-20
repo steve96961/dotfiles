@@ -70,7 +70,9 @@ end
 set -x PATH $PATH:/usr/local/bin:/opt/bin
 
 # set editor
-set -x EDITOR "vim"
+set -x VISUAL "vim"
+set -x EDITOR $VISUAL
+set -x SUDO_EDITOR $VISUAL
 
 # fix 'unknown terminal type'
 set -x TERM "xterm-256color"

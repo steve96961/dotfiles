@@ -1,28 +1,28 @@
 {
-	"layer": "top",
-	"modules-left": ["custom/launcher","cpu","memory","custom/media","tray"],
-	"modules-center": ["hyprland/workspaces"],
-	"modules-right": ["custom/updates","network","pulseaudio","clock","custom/power"],
-	
-	"pulseaudio": {
-		"tooltip": false,
-		"scroll-step": 5,
-		"format": "{icon}   {volume}%",
-		"format-muted": " Muted",
-		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
-		"format-icons": {
-			"default": ["", "",""]
-		}
-	},
+  "layer": "top",
+  "modules-left": ["cpu","memory","tray","custom/spotify"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": ["custom/updates","custom/wallpaper","network","pulseaudio","clock","custom/power"],
 
-  	"hyprland/window": {
-        	"format": "{}"
-    	}, 
+  "pulseaudio": {
+    "tooltip": false,
+    "scroll-step": 5,
+    "format": "{icon}   {volume}%",
+    "format-muted": " Muted",
+    "on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "format-icons": {
+      "default": ["", "",""]
+    }
+  },
 
-        "hyprland/workspaces": {
-            "format": "{icon}",
-            "separate-outputs": false,
-            "active-only": false,
+  "hyprland/window": {
+    "format": "{}"
+  }, 
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "separate-outputs": false,
+    "active-only": false,
             // turn on true to show same all workspaces on each monitor
             "all-outputs": false,
             "format-icons": {
@@ -48,7 +48,7 @@
             "18": "8",
             "19": "9",
             "110": "10"
-            
+
             // // 1-10
             // "1": "一",
             // "2": "二",
@@ -72,57 +72,69 @@
             // "19": "九",
             // "110": "十"
             }
-},    
-	"network": {
-		"tooltip": false,
-		"format-wifi": "  {essid}",
-		"format-ethernet": "{ipaddr}/{cidr}"
-	},
-	
-    	"tray":{
-		"icon-size":18,
-		"spacing": 10
-	},
-    "clock": {
-        "format": "🕑 {:%R 📅 %d.%m.%Y}",
+  },    
+  "network": {
+    "tooltip": false,
+    "format-wifi": "  {essid}",
+    "format-ethernet": "{ipaddr}/{cidr}"
+  },
+
+  "tray":{
+    "icon-size":18,
+    "spacing": 10
+  },
+  "clock": {
+    "format": "🕑 {:%R 📅 %d.%m.%Y}",
+    "tooltip": false
+  },
+  "cpu": {
+    "interval": 10,
+    "format": "  {usage}%",
+    "max-length": 10
+  },
+  "memory": {
+    "interval": 30,
+    "format": "  {}%",
+    "max-length": 10
+  },
+  "custom/media": {
+    "format": "{icon} {}",
+    "return-type": "json",
+    "max-length": 40,
+
+    "format-icons": {
+      "spotify": " ",
+      "default": "🎜 "
     },
-    "cpu": {
-        "interval": 10,
-        "format": "  {usage}%",
-        "max-length": 10
-    },
-    "memory": {
-        "interval": 30,
-        "format": "  {}%",
-        "max-length": 10
-    },
-   "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        
-        "format-icons": {
-            "spotify": " ",
-            "default": "🎜 "
-        },
-        "escape": true,
-        "exec": "$HOME/.config/system_scripts/mediaplayer.py",
-        "on-click": "playerctl play-pause"
-    },
-    "custom/launcher":{
-        "format": " ",
-        "on-click": "wofi -show drun",
-        "on-click-right": "killall wofi"
-    },
-    "custom/power":{
-        "format": "⏻ ",
-        "on-click": "wlogout -b 2 -L 500 -R 500 -T 300 -B 300",
-	"tooltip-format": "Power Menu"
+    "escape": true,
+    "exec": "$HOME/.config/system_scripts/mediaplayer.py",
+    "on-click": "playerctl play-pause"
+  },
+  "custom/spotify": {
+    "exec": "$HOME/.config/system_scripts/mediaplayer.py --player spotify",
+    "format": " {}",
+    "rotate": 0,
+    "return-type": "json",
+    "on-click": "playerctl play-pause --player spotify",
+    "on-click-right": "playerctl next --player spotify",
+    "on-click-middle": "playerctl previous --player spotify",
+    "max-length": 25,
+    "escape": true,
+    "tooltip": true
+  },
+  "custom/power":{
+    "format": "⏻ ",
+    "on-click": "wlogout -b 2 -L 500 -R 500 -T 300 -B 300",
+    "tooltip-format": "Power Menu" },
+    "custom/wallpaper":{
+      "format": "墙纸",
+      "on-click": "$HOME/.config/system_scripts/nextWallpaper.sh",
+      "tooltip-format": "Switch Wallpaper"
     },
     "custom/updates":{
-        "format": "{} Update(s)",
-        "exec": "checkupdates | wc -l",
-        "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
-        "interval": 60
+      "format": "{} Update(s)",
+      "exec": "checkupdates | wc -l",
+      "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+      "interval": 60
     },
-    }
+}
