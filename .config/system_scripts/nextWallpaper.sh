@@ -9,7 +9,6 @@ wallpapers=($WALLPAPER_DIR/*)
 # Determine the current wallpaper
 if [[ -f $CURRENT_WALLPAPER_FILE ]]; then
     current_wallpaper=$(cat "$CURRENT_WALLPAPER_FILE")
-    hyprctl hyprpaper unload $current_wallpaper
     current_index=-1
     for i in "${!wallpapers[@]}"; do
         if [[ "${wallpapers[$i]}" == "$current_wallpaper" ]]; then
@@ -25,15 +24,7 @@ fi
 next_index=$(( (current_index + 1) % ${#wallpapers[@]} ))
 next_wallpaper="${wallpapers[$next_index]}"
 
-hyprctl hyprpaper preload "$next_wallpaper"
-
-# Get the list of monitors
-monitors=$(hyprctl monitors | grep "ID" | awk '{print $2}')
-
-# Loop through each monitor and apply the wallpaper
-for monitor in $monitors; do
-    hyprctl hyprpaper wallpaper "$monitor,$next_wallpaper"
-done
+swww img --transition-type grow --transition-pos  0.86,0.909 --transition-step 90 $next_wallpaper
 
 # Save the current wallpaper
 echo "$next_wallpaper" > "$CURRENT_WALLPAPER_FILE"
