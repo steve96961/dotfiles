@@ -48,6 +48,7 @@ window#waybar.hidden {
 
 #workspaces button.urgent {
     background-color: lightblue;
+    color: white;
 }
 
 #tags {
