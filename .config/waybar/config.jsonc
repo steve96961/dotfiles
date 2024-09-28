@@ -28,11 +28,14 @@
     "custom/power",
   ],
 
-  "network": {
-    "tooltip": false,
-    "format-wifi": "  {essid}",
-    "format-ethernet": "{ipaddr}/{cidr}"
-  },
+"network": {
+        "format-wifi": "{essid} ({signalStrength}%)  ",
+        "format-ethernet": "Connected  ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    },
 
   "clock": {
     "interval": 1,
