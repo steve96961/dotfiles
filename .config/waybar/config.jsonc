@@ -28,6 +28,26 @@
     "custom/power",
   ],
 
+"backlight": {
+	"interval": 2,
+	"align": 0,
+	"rotate": 0,
+	//"format": "{icon} {percent}%",
+	"format-icons": [
+		" ",
+		" ",
+		" ",
+		"󰃝 ",
+		"󰃞 ",
+		"󰃟 ",
+		"󰃠 "
+	],
+	"format": "{icon}",
+	"tooltip-format": "backlight {percent}%",
+	"icon-size": 10,
+	"smooth-scrolling-threshold": 1,
+},
+
 "network": {
         "format-wifi": "{essid} ({signalStrength}%)  ",
         "format-ethernet": "Connected  ",
