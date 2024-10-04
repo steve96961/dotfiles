@@ -3,7 +3,7 @@
  * ----------------------------------------------------- */
 
 * {
-    font-family: "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: "FiraCode Nerd Font Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif";
 	background-image: none;
     	font-size:20px;
 }
@@ -33,7 +33,7 @@ button:focus {
 }
 
 button:hover {
-	background-color: #a6adc8;
+	background-color: #ebbcba;
 	background-size: 25%;
    	border-radius: 30px;
    	animation: gradient_f 20s ease-in infinite;

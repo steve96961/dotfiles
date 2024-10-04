@@ -2,6 +2,7 @@
 
 # WALLPAPERS PATH
 wallDIR="$HOME/.wallpapers"
+fuzzelDIR="$HOME/.config/fuzzel"
 
 # variables
 focused_monitor=$(hyprctl monitors | awk '/^Monitor/{name=$2} /focused: yes/{print name}')
@@ -12,11 +13,6 @@ DURATION=2
 BEZIER=".43,1.19,1,.4"
 SWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration $DURATION"
 
-# Check if swaybg is running
-if pidof swaybg > /dev/null; then
-  pkill swaybg
-fi
-
 # Retrieve image files using null delimiter to handle spaces in filenames
 mapfile -d '' PICS < <(find "${wallDIR}" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" \) -print0)
 
@@ -24,7 +20,9 @@ RANDOM_PIC="${PICS[$((RANDOM % ${#PICS[@]}))]}"
 RANDOM_PIC_NAME=". random"
 
 # fuzzel command
-menu_command="fuzzel --dmenu -i -I --prompt '🎞️ Choose Wallpaper' --width 60"
+menu_command="fuzzel --dmenu -i -I -p 'Choose Wallpaper: ' --config $fuzzelDIR/fuzzel.ini"
+
+echo $menu_command
 
 # Sorting Wallpapers
 menu() {
@@ -52,6 +50,8 @@ swww query || swww-daemon --format xrgb
 # Choice of wallpapers
 main() {
   choice=$(menu | $menu_command)
+
+  echo $choice
   
   # Trim any potential whitespace or hidden characters
   choice=$(echo "$choice" | xargs)
@@ -93,7 +93,7 @@ main() {
 # Check if fuzzel is already running
 if pidof fuzzel > /dev/null; then
   pkill rofi
-  sleep 1  # Allow some time for rofi to close
+  sleep 1  # Allow some time for fuzzel to close
 fi
 
 main
