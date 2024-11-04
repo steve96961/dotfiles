@@ -41,6 +41,7 @@
 
   "clock": {
     "interval": 1,
+    "locale": "de_DE.UTF-8",
     "format": " {:%H:%M:%S}", // 24H
     "format-alt": " {:%H:%M   %Y, %d %B, %A}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
@@ -144,6 +145,7 @@
     "format-window-separator": " ",
     "window-rewrite-default": " ",
     "window-rewrite": {
+      "class<io.github.mrvladus.List>": " ",
       "title<.*youtube.*>": " ",
       "title<.*netflix.*>": "󰝆 ",
       "title<.*vim.*>": " ",
