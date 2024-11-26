@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
-sudo pacman -Suy --needed hyprland hyprlock tmux fish fuzzel grim slurp mako nemo swww waybar alacritty noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono-nerd ttf-firacode-nerd discord k9s kubectl helm code vim docker docker-buildx chromium fastfetch pipewire iw iwd go cliphist base-devel less
+sudo pacman -Suy --needed hyprland hyprlock tmux fish fuzzel grim slurp mako nemo swww waybar alacritty noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono-nerd ttf-firacode-nerd discord k9s kubectl helm code vim docker docker-buildx chromium fastfetch pipewire iw iwd go cliphist base-devel less dhcpcd
 
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
+cd ..
 
 yay -S bibata-cursor-theme catppuccin-gtk-theme-mocha wlogout errands
 
-cp -r .config ~/.
+cp -r .config .wallpapers .vimrc ~/.
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
