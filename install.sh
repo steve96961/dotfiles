@@ -7,3 +7,5 @@ cd yay
 makepkg -si
 
 yay -S bibata-cursor-theme catppuccin-gtk-theme-mocha wlogout errands
+
+cp -r .config ~/.
