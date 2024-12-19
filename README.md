@@ -1,5 +1,11 @@
 # My Personal Arch Setup using Hyprland as tiling window compositor
-# Get Started:
+
+## Screenshots
+
+![image](https://github.com/user-attachments/assets/5ce493e3-2223-4b56-9d4e-52c1b52722c0)
+
+
+## Get Started:
 
 ```bash
 sudo pacman -Suy hyprland hyprlock tmux fish fuzzel grim slurp mako nemo swww waybar alacritty noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono-nerd ttf-firacode-nerd discord k9s kubectl helm code vim docker docker-buildx chromium fastfetch pipewire iw iwd go cliphist errands
